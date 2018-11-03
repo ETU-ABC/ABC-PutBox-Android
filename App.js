@@ -5,7 +5,7 @@ export default class App extends Component {
   render() {
     return (
       <WebView
-        source={{uri: 'https://github.com/ETU-ABC/ABC-PutBox-Android'}}
+        source={{uri: 'https://lit-sierra-86142.herokuapp.com/'}}
         style={{marginTop: 20}}
       />
     );

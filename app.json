@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "PutBox",
-    "description": "This project is really great.",
+    "description": "PutBox application.",
     "slug": "PutBox",
     "privacy": "public",
     "sdkVersion": "30.0.0",
@@ -21,7 +21,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.abc.putbox",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.abc.putbox"
     }
   }
 }
