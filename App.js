@@ -5,7 +5,7 @@ import {
   WebView
 } from 'react-native';
 
-var DEFAULT_URL = 'https://lit-sierra-86142.herokuapp.com/';
+var DEFAULT_URL = 'http://putbox-abc.herokuapp.com/';
 
 export default class App extends Component {
   webView = {
