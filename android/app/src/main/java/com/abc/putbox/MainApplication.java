@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblongmana.webviewfileuploadandroid.AndroidWebViewPackage;
 import im.shimo.react.cookie.CookieManagerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -44,6 +45,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.asList(
         new MainReactPackage(),
+            new AndroidWebViewPackage(),
             new CookieManagerPackage(),
         new RNFirebasePackage(),
         // add/remove these packages as appropriate

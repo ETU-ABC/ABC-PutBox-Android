@@ -4,6 +4,7 @@ import { StyleSheet, Platform, Image, Text, View, ScrollView, WebView, BackHandl
 import firebase from 'react-native-firebase';
 import { Notification, NotificationOpen } from 'react-native-firebase';
 import Cookie from 'react-native-cookie';
+import AndroidWebView from 'react-native-webview-file-upload-android';
 
 
 var DEFAULT_URL = 'http://putbox-abc.herokuapp.com/';
@@ -117,14 +118,28 @@ export default class App extends React.Component {
   render() {
     const { url } = this.state;
     return (
-      <WebView
-        style={{marginTop: 20}}
-        ref={(webView) => { this.webView.ref = webView; }}
-        onNavigationStateChange={(navState) => {
-          this.webView.canGoBack = navState.canGoBack;
-        ;}}
-        source={{uri: url}}
-      />
+      <View style={{flex:1}}>
+        {Platform.select({
+              android:  () =>
+                <AndroidWebView
+
+                  ref={(webView) => { this.webView.ref = webView; }}
+                  onNavigationStateChange={(navState) => {
+                    this.webView.canGoBack = navState.canGoBack;
+                  ;}}
+                  source={{uri: url}}
+                />,
+              ios:      () =>
+                <WebView
+                  ref={(webView) => { this.webView.ref = webView; }}
+                  onNavigationStateChange={(navState) => {
+                    this.webView.canGoBack = navState.canGoBack;
+                  ;}}
+                  source={{uri: url}}
+                />
+        })()}
+      </View>
+
 
     );
   }

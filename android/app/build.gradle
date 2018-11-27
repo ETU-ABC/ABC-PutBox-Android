@@ -166,6 +166,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-webview-file-upload-android')
     compile project(':react-native-cookie')
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
