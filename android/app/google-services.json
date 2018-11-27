@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1024010714806",
+    "firebase_url": "https://etuabcputbox.firebaseio.com",
+    "project_id": "etuabcputbox",
+    "storage_bucket": "etuabcputbox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024010714806:android:928020e2899ba33f",
+        "android_client_info": {
+          "package_name": "com.abc.putbox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024010714806-46uhqnh5j6p8jgrto28m3gmkdvp9c9ec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaJfz3lO8oEnDXVvT3ut-R9hbX963w6UM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

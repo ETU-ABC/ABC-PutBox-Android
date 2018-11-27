@@ -1,4 +1,6 @@
 {
+  "name": "PutBox",
+  "displayName": "PutBox",
   "expo": {
     "name": "PutBox",
     "description": "PutBox application.",
