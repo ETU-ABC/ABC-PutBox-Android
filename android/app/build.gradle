@@ -166,6 +166,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-home-pressed')
     compile project(':react-native-webview-file-upload-android')
     compile project(':react-native-cookie')
   //noinspection GradleDynamicVersion

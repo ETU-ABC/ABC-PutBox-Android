@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Platform, Image, Text, View, ScrollView, WebView, BackHandler } from 'react-native';
+import { StyleSheet, Platform, Image, Text, View, ScrollView, WebView, BackHandler, DeviceEventEmitter } from 'react-native';
 
 import firebase from 'react-native-firebase';
 import { Notification, NotificationOpen } from 'react-native-firebase';
@@ -20,6 +20,11 @@ export default class App extends React.Component {
     if (Platform.OS === 'android') {
      BackHandler.addEventListener('hardwareBackPress', this.onAndroidBackPress);
     }
+    DeviceEventEmitter.addListener(
+     'ON_HOME_BUTTON_PRESSED',
+     () => {
+       this.cookieCheck();
+    })
 
 
     firebase.notifications().getInitialNotification()
@@ -30,9 +35,9 @@ export default class App extends React.Component {
           const action = notificationOpen.action;
           // Get information about the notification that was opened
           const notification = notificationOpen.notification;
-          console.log("Opened notification: ",notification);
+          console.log("ABC-Opened notification: ",notification);
           this.changeURL(notification.data.url);
-          console.log("Changed the url to ",notification.data.url);
+          console.log("ABC-Changed the url to ",notification.data.url);
         }
       });
     this.cookieCheck();
@@ -43,7 +48,7 @@ export default class App extends React.Component {
       if(user){
         if(cookie!==null && cookie!==undefined){
           if(user.email!==cookie.concat('@abc.com').toLowerCase()){
-            console.log("Logging out(cookie and email are different) from user: ",cookie.concat('@abc.com'), user.email);
+            console.log("ABC-Logging out(cookie and email are different) from user: ",cookie.concat('@abc.com'), user.email);
             firebase.messaging().unsubscribeFromTopic(user.email.substring(0, user.email.lastIndexOf("@")));
             firebase.auth().signOut().then(()=>{
               firebase.auth()
@@ -59,14 +64,15 @@ export default class App extends React.Component {
               })
               .then(()=>{
                 firebase.messaging().subscribeToTopic(cookie).then(()=>{
-                  console.log("Logged out(cookie and email are different) and relogged&subbed to: ",cookie);
-                  console.log('Logged user info1-> ', user.toJSON());
+                  console.log("ABC-Logged out(cookie and email are different) and relogged&subbed to: ",cookie);
+                  console.log('ABC-Logged user info1-> ', user.toJSON());
                 }).catch(error =>{
                   console.log(error.message, error.code);
                 });
               });
            });
          }
+         console.log('ABC-User email and cookie matched, no action required: ', cookie);
        }
       }
       else{
@@ -83,8 +89,7 @@ export default class App extends React.Component {
               }
           });
           firebase.messaging().subscribeToTopic(cookie).then(()=>{
-            console.log('No user exists before and logged in to cookie: ', cookie)
-            console.log('Logged user info2-> ', user.toJSON());
+            console.log('ABC-No user exists before and logged in to cookie: ', cookie);
           }).catch(error =>{
             console.log(error.message, error.code);
           });
